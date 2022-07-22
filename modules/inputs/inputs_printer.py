@@ -25,9 +25,9 @@ def create_columns(major_color):
     generated_columns = ""
     for index, minor_color in enumerate(MINOR_COLORS):
         full_string = (
-            "   " + str((index + 1) + (5 * major_color))
-            + "\t |\t" + MAJOR_COLORS[major_color] + "\t\t|\t"
-            + MINOR_COLORS[index] + "\t\t|\t\n")
+            "   " + str((index + 1) + (5 * major_color)) +
+            "\t |\t" + MAJOR_COLORS[major_color] + "\t\t|\t" +
+            MINOR_COLORS[index] + "\t\t|\t\n")
         simple_string = (
             "   " + str((index + 1) + (5 * major_color))
             + "\t |\t" + " " + "\t\t|\t"
