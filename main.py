@@ -1,51 +1,72 @@
+from color_codes import MAJOR_COLORS, MINOR_COLORS
+from pair_color_tests import test_number_to_pair, test_pair_to_number
+from print_color_map import print_color_map, color_map_index
+import os
+import sys
 
-MAJOR_COLORS = ['White', 'Red', 'Black', 'Yellow', 'Violet']
-MINOR_COLORS = ["Blue", "Orange", "Green", "Brown", "Slate"]
+def menu():
+  print("\n************ Welcome to Map Color Application **************")
+  print()
 
+  choice = input("""
+                1: Test Number to Pair
+                2: Test Pair to Number
+                3: Print Color Map
+                4: Exit
 
-def color_pair_to_string(major_color, minor_color):
-  return f'{major_color} {minor_color}'
+                Please enter your choice: """)
 
-
-def get_color_from_pair_number(pair_number):
-  zero_based_pair_number = pair_number - 1
-  major_index = zero_based_pair_number // len(MINOR_COLORS)
-  if major_index >= len(MAJOR_COLORS):
-    raise Exception('Major index out of range')
-  minor_index = zero_based_pair_number % len(MINOR_COLORS)
-  if minor_index >= len(MINOR_COLORS):
-    raise Exception('Minor index out of range')
-  return MAJOR_COLORS[major_index], MINOR_COLORS[minor_index]
-
-
-def get_pair_number_from_color(major_color, minor_color):
-  try:
-    major_index = MAJOR_COLORS.index(major_color)
-  except ValueError:
-    raise Exception('Major index out of range')
-  try:
-    minor_index = MINOR_COLORS.index(minor_color)
-  except ValueError:
-    raise Exception('Minor index out of range')
-  return major_index * len(MINOR_COLORS) + minor_index + 1
-
-
-def test_number_to_pair(pair_number,
-                        expected_major_color, expected_minor_color):
-  major_color, minor_color = get_color_from_pair_number(pair_number)
-  assert(major_color == expected_major_color)
-  assert(minor_color == expected_minor_color)
-
-
-def test_pair_to_number(major_color, minor_color, expected_pair_number):
-  pair_number = get_pair_number_from_color(major_color, minor_color)
-  assert(pair_number == expected_pair_number)
-
+  if choice == "1":
+    while True:
+      print(color_map_index())
+      try:
+        test_position = int(input("Insert Pair Number: "))
+        major_color = str(input ("Insert Major Color: "))
+        minor_color = input ("Insert Minor Color: ")
+        if(test_number_to_pair(int(test_position),major_color.capitalize(), minor_color.capitalize())):
+          print("\nTest result: Test finis correctly\n")
+          menu()
+          break
+        else:
+          print("\nTest result: Test failed\n")
+          menu()
+          break
+      except:
+        print("\nThis is an unaccepted inputs, enter a valid values")
+  elif choice == "2":
+    while True:
+      print(color_map_index())
+      major_color = str(input ("Insert Major Color: "))
+      minor_color = input ("Insert Minor Color: ")
+      try:
+        test_position = int(input("Insert Pair Number: "))
+        if(test_pair_to_number(major_color.capitalize(), minor_color.capitalize(), int(test_position))):
+          print("\nTest result: Test finis correctly\n")
+          menu()
+          break
+        else:
+          print("\nTest result: Test failed\n")
+          menu()
+          break
+      except:
+        print("\nThis is an unaccepted inputs, enter a valid values")
+      test_pair_to_number('Violet', 'Slate', 25)
+  elif choice == "3":
+      print(print_color_map())
+      original_stdout = sys.stdout
+      with open('color_map.txt', 'w') as file:
+        sys.stdout = file
+        print(print_color_map())
+        sys.stdout = original_stdout
+        print("\nFile saved as: "+ os.getcwd() + "\\" + file.name)
+      menu()
+  elif choice ==  "4":
+      print("Done :)")
+      sys.exit
+  else:
+      print("You must only select option between 1 - 4")
+      print("Please try again")
+      menu()
 
 if __name__ == '__main__':
-  test_number_to_pair(4, 'White', 'Brown')
-  test_number_to_pair(5, 'White', 'Slate')
-  test_pair_to_number('Black', 'Orange', 12)
-  test_pair_to_number('Violet', 'Slate', 25)
-  test_pair_to_number('Red', 'Orange', 7)
-  print('Done :)')
+  menu()
