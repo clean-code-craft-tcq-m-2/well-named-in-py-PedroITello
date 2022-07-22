@@ -2,6 +2,7 @@ from modules.mod_print_color_map import print_color_map
 import sys
 import os
 
+
 def opt_menu_3(self):
     while True:
         print(print_color_map())
@@ -10,6 +11,6 @@ def opt_menu_3(self):
             sys.stdout = file
             print(print_color_map())
             sys.stdout = original_stdout
-            print("\nFile saved as: "+ os.getcwd() + "\\" + file.name)
+            print("\nFile saved as: " + os.getcwd() + "\\" + file.name)
             self.menu()
             break

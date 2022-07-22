@@ -1,7 +1,8 @@
 from modules.inputs.inputs_menu import choice_selector
 from modules.inputs.inputs_printer import thematic_break, header
-class Menu:
 
+
+class Menu:
 
     def menu(self):
         print(thematic_break())
@@ -15,4 +16,4 @@ class Menu:
 
                 Please enter your choice: """)
 
-        choice_selector(self,choice)
+        choice_selector(self, choice)
