@@ -1,4 +1,6 @@
-from functions.config.color_codes import MAJOR_COLORS, MINOR_COLORS
+from functions.config.color_codes import MINOR_COLORS
+from modules.inputs.inputs_printer_strings import (construct_full_string,
+                                                   construct_simple_string)
 
 
 # Generate line to separate topics in print view form
@@ -24,16 +26,10 @@ def column_headers():
 def create_columns(major_color):
     generated_columns = ""
     for index, minor_color in enumerate(MINOR_COLORS):
-        full_string = (
-            "   " + str((index + 1) + (5 * major_color)) +
-            "\t |\t" + MAJOR_COLORS[major_color] + "\t\t|\t" +
-            MINOR_COLORS[index] + "\t\t|\t\n")
-        simple_string = (
-            "   " + str((index + 1) + (5 * major_color))
-            + "\t |\t" + " " + "\t\t|\t"
-            + MINOR_COLORS[index] + "\t\t|\t\n")
         if(index == 2):
-            generated_columns = generated_columns + full_string
+            temp = construct_full_string(index, major_color)
+            generated_columns = generated_columns + temp
         else:
-            generated_columns = generated_columns + simple_string
+            temp = construct_simple_string(index, major_color)
+            generated_columns = generated_columns + temp
     return generated_columns
