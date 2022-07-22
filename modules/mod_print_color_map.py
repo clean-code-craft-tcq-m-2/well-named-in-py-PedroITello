@@ -1,8 +1,8 @@
 from functions.config.color_codes import MAJOR_COLORS
-from modules.inputs.inputs_printer import (header,
-                                           thematic_break,
-                                           column_headers,
-                                           create_columns)
+from functions.func_layout import (header,
+                                   thematic_break,
+                                   column_headers,
+                                   create_columns)
 
 map = ''
 
@@ -14,6 +14,7 @@ def color_pair_to_string(major_color, minor_color):
 # Start render of color map
 def print_color_map():
     global map
+    map = map + thematic_break()
     map = map + header("Printable Color Map")
     map = map + thematic_break()
     map = map + header("\tMap")

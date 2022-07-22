@@ -3,8 +3,9 @@ import sys
 import os
 
 
-def opt_menu_3(self):
-    while True:
+class OptMenuPrint:
+
+    def opt_menu_print(self):
         print(print_color_map())
         original_stdout = sys.stdout
         with open('color_map.txt', 'w') as file:
@@ -12,5 +13,3 @@ def opt_menu_3(self):
             print(print_color_map())
             sys.stdout = original_stdout
             print("\nFile saved as: " + os.getcwd() + "\\" + file.name)
-            # self.menu()
-            break
