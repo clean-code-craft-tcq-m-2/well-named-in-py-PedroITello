@@ -12,5 +12,5 @@ def opt_menu_3(self):
             print(print_color_map())
             sys.stdout = original_stdout
             print("\nFile saved as: " + os.getcwd() + "\\" + file.name)
-            self.menu()
+            # self.menu()
             break
