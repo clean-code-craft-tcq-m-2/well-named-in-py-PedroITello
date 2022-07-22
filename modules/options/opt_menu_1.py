@@ -22,5 +22,6 @@ def opt_menu_1(self):
                 self.menu()
                 break
         except Exception:
-            print("\nThis is an unaccepted test position value,"
-                  + "enter a valid value")
+            message = message + "\nThis is an unaccepted test position value,"
+            message = message + "enter a valid value"
+            print(message)
