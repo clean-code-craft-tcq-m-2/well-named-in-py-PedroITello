@@ -4,10 +4,10 @@ from modules.inputs.inputs_printer import header, thematic_break
 triple_tab = "\t\t\t"
 
 
-def color_map_index():
+def color_map_index(message):
     index_string = ""
     index_string = index_string + thematic_break()
-    index_string = index_string + header("\tOptions Help")
+    index_string = index_string + header(message + " Options Help")
     index_string = index_string + thematic_break()
     index_string = index_string + ("Major Colors"
                                    + triple_tab
