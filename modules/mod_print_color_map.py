@@ -15,7 +15,7 @@ def color_pair_to_string(major_color, minor_color):
 def print_color_map():
     global map
     map = map + thematic_break()
-    map = map + header("Printable Color Map")
+    map = map + header("3: Printable Color Map")
     map = map + thematic_break()
     map = map + header("\tMap")
     map = map + thematic_break()

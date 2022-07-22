@@ -26,7 +26,7 @@ class InputsMenu:
         elif self.choice == "3":
             OptMenuPrint().opt_menu_print()
         elif self.choice == "4":
-            print("\nDone :)")
+            print("\n4: Done :)")
             sys.exit
         else:
             print("You must only select option between"
