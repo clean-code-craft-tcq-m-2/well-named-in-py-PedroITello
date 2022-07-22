@@ -27,15 +27,16 @@ def column_headers():
 def create_columns(major_color):
     generated_columns = ""
     for index, minor_color in enumerate(MINOR_COLORS):
-        aux_string = ""
-        if(index == 2):
-            aux_string = "   " + str((index + 1) + (5*major_color))
+        full_string = (
+            "   " + str((index+1)+(5*major_color))
             + "\t |\t" + MAJOR_COLORS[major_color] + column_separator
-            + MINOR_COLORS[index]+column_end
-            generated_columns = generated_columns + aux_string
+            + MINOR_COLORS[index] + column_end)
+        simple_string = (
+            "   "+str((index+1)+(5*major_color))
+            + "\t |\t" + "" + column_separator + MINOR_COLORS[index]
+            + column_end)
+        if(index == 2):
+            generated_columns = generated_columns + full_string
         else:
-            aux_string = "   " + str((index + 1) + (5*major_color))
-            + "\t |\t" + "" + column_separator
-            + MINOR_COLORS[index] + column_end
-            generated_columns = generated_columns + aux_string
+            generated_columns = generated_columns + simple_string
     return generated_columns
