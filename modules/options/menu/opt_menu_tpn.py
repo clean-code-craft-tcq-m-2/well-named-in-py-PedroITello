@@ -11,11 +11,11 @@ class OptMenuTPN:
             print("Tested Data:\n -Major Color: "
                   + major_color.capitalize()
                   + "-Minor Color: " + minor_color.capitalize()
-                  + "-Test Position: " + str(test_position)+"\n")
+                  + "-Test Position: " + str(test_position))
             print("\nTest result: Test finis correctly\n")
         except AssertionError:
             print("Tested Data:\n -Major Color: "
                   + major_color.capitalize()
                   + "-Minor Color: " + minor_color.capitalize()
-                  + "-Test Position: " + str(test_position)+"\n")
+                  + "-Test Position: " + str(test_position))
             print("\nTest result: Test failed\n")
