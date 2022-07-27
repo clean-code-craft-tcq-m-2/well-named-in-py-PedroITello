@@ -2,7 +2,10 @@ from modules.inputs.inputs_menu import InputsMenu
 from functions.func_layout import thematic_break, header
 
 
-class Menu:
+class Menu (InputsMenu):
+
+    def __init__(self):
+        self.input = InputsMenu()
 
     def menu(self):
         print(thematic_break())
@@ -17,6 +20,5 @@ class Menu:
         #
 
         Functionality test beggins now...""")
-        for i in range(4):
-            input = InputsMenu(i+1)
-            input.choice_selector()
+        for i in range(5):
+            self.input.choice_selector(str(i))

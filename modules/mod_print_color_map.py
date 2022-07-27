@@ -4,25 +4,27 @@ from functions.func_layout import (header,
                                    column_headers,
                                    create_columns)
 
-map = ''
 
+class PrintColorMap:
 
-def color_pair_to_string(major_color, minor_color):
-    return f'{major_color} {minor_color}'
+    def __init__(self):
+        self.map = ""
 
+    def color_pair_to_string(major_color, minor_color):
+        return f'{major_color} {minor_color}'
 
-# Start render of color map
-def print_color_map():
-    global map
-    map = map + thematic_break()
-    map = map + header("3: Printable Color Map")
-    map = map + thematic_break()
-    map = map + header("\tMap")
-    map = map + thematic_break()
-    map = map + ""
-    map = map + column_headers()
-    map = map + thematic_break()
-    for index, major_color in enumerate(MAJOR_COLORS):
-        map = map + create_columns(index)
-        map = map + thematic_break()
-    return map
+    # Start render of color map
+    def print_color_map(self):
+
+        self.map = self.map + thematic_break()
+        self.map = self.map + header("3: Printable Color Map")
+        self.map = self.map + thematic_break()
+        self.map = self.map + header("\tMap")
+        self.map = self.map + thematic_break()
+        self.map = self.map + ""
+        self.map = self.map + column_headers()
+        self.map = self.map + thematic_break()
+        for index, major_color in enumerate(MAJOR_COLORS):
+            self.map = self.map + create_columns(index)
+            self.map = self.map + thematic_break()
+        return self.map
