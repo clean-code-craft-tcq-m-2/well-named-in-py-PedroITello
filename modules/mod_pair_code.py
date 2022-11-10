@@ -1,4 +1,4 @@
-from functions.pair_color_tests.tests_functions import (
+from functions.pair_color.pair_color_functions import (
   get_color_from_pair_number,
   get_pair_number_from_color)
 

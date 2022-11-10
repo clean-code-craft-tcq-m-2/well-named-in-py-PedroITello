@@ -1,4 +1,4 @@
-from modules.mod_test_pair_code import test_pair_to_number
+from modules.mod_pair_code import test_pair_to_number
 
 
 class OptMenuTPN:

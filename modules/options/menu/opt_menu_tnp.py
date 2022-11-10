@@ -1,4 +1,4 @@
-from modules.mod_test_pair_code import test_number_to_pair
+from modules.mod_pair_code import test_number_to_pair
 
 
 # Evaluate Tes Number to Pair
